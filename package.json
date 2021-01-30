@@ -1,0 +1,22 @@
+{
+  "name": "blogapp",
+  "version": "1.0.0",
+  "description": "Blog App by Anurag Regmi",
+  "main": "index.js",
+  "author": "anuragregmi@protonmail.com",
+  "license": "MIT",
+  "dependencies": {
+    "@popperjs/core": "^2.6.0",
+    "babel": "^6.23.0",
+    "babel-loader": "^8.2.2",
+    "bootstrap": "^5.0.0-beta1",
+    "webpack": "^5.18.0",
+    "webpack-bundle-tracker": "0.4.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "css-loader": "^5.0.1",
+    "mini-css-extract-plugin": "^1.3.5",
+    "webpack-cli": "^4.4.0"
+  }
+}
