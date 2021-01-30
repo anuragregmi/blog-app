@@ -79,3 +79,5 @@ webpack-stats.json
 # idea
 .idea/
 .vscode/
+
+media/

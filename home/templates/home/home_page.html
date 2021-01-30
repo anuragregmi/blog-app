@@ -1,10 +1,30 @@
 {% extends "base.html" %}
-{% load static %}
+{% load static wagtailcore_tags wagtailimages_tags %}
+
 
 
 {% block extra_css %}
 {% endblock extra_css %}
 
 {% block content %}
-    Home
+    <div class="container pt-3 row">
+    {% for blog_page in  page.all_blogs %}
+        <div class="col-md-3">
+            <div class="card">
+                {% if blog_page.feed_image %}
+                    {% image blog_page.feed_image original class="img-fluid"  style="height:100px; width:auto" alt=blog_page.title %}
+                {% else %}
+                    <div class="bg-dark" style="height:100px; width:auto"></div>
+                {%  endif %}
+                <div class="card-body">
+                    <h5 class="card-title" title="{{ blog_page.title }}" style="height: 2em">{{ blog_page.title|truncatechars:40}}</h5>
+                    <a href="{{ blog_page.get_url }}" class="btn btn-primary">Read More</a>
+                </div>
+        </div>
+        </div>
+    {% empty %}
+        No blogs at the moment.
+    {%  endfor %}
+
+    </div>
 {% endblock content %}

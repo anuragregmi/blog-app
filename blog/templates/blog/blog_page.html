@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load static wagtailcore_tags wagtailimages_tags %}
+
+{% block extra_css %}
+{% endblock extra_css %}
+
+{% block content %}
+    <div class="container text-center">
+    {% image page.feed_image height-300 class="img-fluid"  %}
+
+    </div>
+    <div class="container pt-3">
+    {{ page.body|richtext }}
+    </div>
+{% endblock content %}
