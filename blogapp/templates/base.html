@@ -1,4 +1,4 @@
-{% load static wagtailuserbar %}
+{% load static wagtailuserbar blog_tags %}
 {% load render_bundle from webpack_loader %}
 
 
@@ -37,7 +37,12 @@
                 <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                     <ul class="navbar-nav">
                         <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-                        <li class="nav-item"><a class="nav-link">New</a></li>
+                        {% get_blog_list_pages as blog_list_pages %}
+                        {% for blog_list_page in blog_list_pages %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ blog_list_page.get_url }}">{{ blog_list_page.title }}</a>
+                            </li>
+                        {% endfor %}
                     </ul>
                 </div>
             </div>
