@@ -1,0 +1,16 @@
+{% load wagtailimages_tags  %}
+<div class="col-md-3">
+    <div class="card">
+        {% if blog_page.feed_image %}
+
+            {% image blog_page.feed_image fill-300x100 class="img-fluid" style="height:100px; width:auto" alt=blog_page.title %}
+        {% else %}
+            <div class="bg-dark" style="height:100px; width:auto"></div>
+        {% endif %}
+        <div class="card-body">
+            <h5 class="card-title" title="{{ blog_page.title }}"
+                style="height: 2em">{{ blog_page.title|truncatechars:40 }}</h5>
+            <a href="{{ blog_page.get_url }}" class="btn btn-primary">Read More</a>
+        </div>
+    </div>
+</div>
