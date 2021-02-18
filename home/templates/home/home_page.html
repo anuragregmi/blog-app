@@ -6,12 +6,30 @@
 {% endblock extra_css %}
 
 {% block content %}
-    <div class="container pt-3 row">
+    {% if page.featured_blog %}
+    <div class="container pt-3">
+        <div class="card">
+            <div class="row">
+                <div class="col-sm-12 col-md-6 pt-3">
+                    <h5 class="card-title ps-3">{{ page.featured_blog.title }}</h5>
+                    <div class="card-body">
+                        {{ page.featured_blog.body|truncatechars_html:400|richtext }}
+                        <a href="{{ page.featured_blog.get_url }}" class="btn btn-primary">Read More</a>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    {% image page.featured_blog.feed_image fill-600x400 class="img-fluid" %}
+                </div>
+            </div>
+
+        </div>
+    </div>
+    {% endif %}
+    <div class="container row pt-3">
     {% for blog_page in  page.all_blogs %}
         {% blog_card blog_page %}
     {% empty %}
         No blogs at the moment.
     {%  endfor %}
-
     </div>
 {% endblock content %}

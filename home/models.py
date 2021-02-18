@@ -11,3 +11,6 @@ class HomePage(Page):
     def all_blogs(self):
         return BlogPage.objects.live().public()[:10]
 
+    @property
+    def featured_blog(self):
+        return BlogPage.objects.live().public().first()
